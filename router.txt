@@ -1,0 +1,117 @@
+                          Prefix Verb     URI Pattern                                              Controller#Action
+               resources_customs GET      /resources_customs(.:format)                             resources_customs#index
+                                 POST     /resources_customs(.:format)                             resources_customs#create
+            new_resources_custom GET      /resources_customs/new(.:format)                         resources_customs#new
+           edit_resources_custom GET      /resources_customs/:id/edit(.:format)                    resources_customs#edit
+                resources_custom GET      /resources_customs/:id(.:format)                         resources_customs#show
+                                 PATCH    /resources_customs/:id(.:format)                         resources_customs#update
+                                 PUT      /resources_customs/:id(.:format)                         resources_customs#update
+                                 DELETE   /resources_customs/:id(.:format)                         resources_customs#destroy
+                        ckeditor          /ckeditor                                                Ckeditor::Engine
+                        programs GET      /programs(.:format)                                      programs#index
+                                 POST     /programs(.:format)                                      programs#create
+                     new_program GET      /programs/new(.:format)                                  programs#new
+                    edit_program GET      /programs/:id/edit(.:format)                             programs#edit
+                         program GET      /programs/:id(.:format)                                  programs#show
+                                 PATCH    /programs/:id(.:format)                                  programs#update
+                                 PUT      /programs/:id(.:format)                                  programs#update
+                                 DELETE   /programs/:id(.:format)                                  programs#destroy
+                         careers GET      /careers(.:format)                                       careers#index
+                                 POST     /careers(.:format)                                       careers#create
+                      new_career GET      /careers/new(.:format)                                   careers#new
+                     edit_career GET      /careers/:id/edit(.:format)                              careers#edit
+                          career GET      /careers/:id(.:format)                                   careers#show
+                                 PATCH    /careers/:id(.:format)                                   careers#update
+                                 PUT      /careers/:id(.:format)                                   careers#update
+                                 DELETE   /careers/:id(.:format)                                   careers#destroy
+               profile_dashboard GET      /profile/dashboard(.:format)                             profile/dashboard#index
+non_activated_campaign_campaigns GET      /campaigns/non_activated_campaign(.:format)              campaigns#non_activated_campaign
+    activated_campaign_campaigns GET      /campaigns/activated_campaign(.:format)                  campaigns#activated_campaign
+                       campaigns GET      /campaigns(.:format)                                     campaigns#index
+                                 POST     /campaigns(.:format)                                     campaigns#create
+                    new_campaign GET      /campaigns/new(.:format)                                 campaigns#new
+                   edit_campaign GET      /campaigns/:id/edit(.:format)                            campaigns#edit
+                        campaign GET      /campaigns/:id(.:format)                                 campaigns#show
+                                 PATCH    /campaigns/:id(.:format)                                 campaigns#update
+                                 PUT      /campaigns/:id(.:format)                                 campaigns#update
+                                 DELETE   /campaigns/:id(.:format)                                 campaigns#destroy
+    campaign_show_donation_index GET      /donation/campaign_show(.:format)                        donation#campaign_show
+                  donation_index GET      /donation(.:format)                                      donation#index
+                                 POST     /donation(.:format)                                      donation#create
+                    new_donation GET      /donation/new(.:format)                                  donation#new
+                   edit_donation GET      /donation/:id/edit(.:format)                             donation#edit
+                        donation GET      /donation/:id(.:format)                                  donation#show
+                                 PATCH    /donation/:id(.:format)                                  donation#update
+                                 PUT      /donation/:id(.:format)                                  donation#update
+                                 DELETE   /donation/:id(.:format)                                  donation#destroy
+                  resource_index GET      /resource(.:format)                                      resource#index
+                                 POST     /resource(.:format)                                      resource#create
+                    new_resource GET      /resource/new(.:format)                                  resource#new
+                   edit_resource GET      /resource/:id/edit(.:format)                             resource#edit
+                        resource GET      /resource/:id(.:format)                                  resource#show
+                                 PATCH    /resource/:id(.:format)                                  resource#update
+                                 PUT      /resource/:id(.:format)                                  resource#update
+                                 DELETE   /resource/:id(.:format)                                  resource#destroy
+             campaign_categories GET      /campaign_categories(.:format)                           campaign_categories#index
+                                 POST     /campaign_categories(.:format)                           campaign_categories#create
+           new_campaign_category GET      /campaign_categories/new(.:format)                       campaign_categories#new
+          edit_campaign_category GET      /campaign_categories/:id/edit(.:format)                  campaign_categories#edit
+               campaign_category GET      /campaign_categories/:id(.:format)                       campaign_categories#show
+                                 PATCH    /campaign_categories/:id(.:format)                       campaign_categories#update
+                                 PUT      /campaign_categories/:id(.:format)                       campaign_categories#update
+                                 DELETE   /campaign_categories/:id(.:format)                       campaign_categories#destroy
+                           posts GET      /posts(.:format)                                         posts#index
+                                 POST     /posts(.:format)                                         posts#create
+                        new_post GET      /posts/new(.:format)                                     posts#new
+                       edit_post GET      /posts/:id/edit(.:format)                                posts#edit
+                            post GET      /posts/:id(.:format)                                     posts#show
+                                 PATCH    /posts/:id(.:format)                                     posts#update
+                                 PUT      /posts/:id(.:format)                                     posts#update
+                                 DELETE   /posts/:id(.:format)                                     posts#destroy
+                     admin_index GET      /admin(.:format)                                         admin#index
+                                 POST     /admin(.:format)                                         admin#create
+                       new_admin GET      /admin/new(.:format)                                     admin#new
+                      edit_admin GET      /admin/:id/edit(.:format)                                admin#edit
+                           admin GET      /admin/:id(.:format)                                     admin#show
+                                 PATCH    /admin/:id(.:format)                                     admin#update
+                                 PUT      /admin/:id(.:format)                                     admin#update
+                                 DELETE   /admin/:id(.:format)                                     admin#destroy
+                new_user_session GET      /users/sign_in(.:format)                                 users/sessions#new
+                    user_session POST     /users/sign_in(.:format)                                 users/sessions#create
+            destroy_user_session DELETE   /users/sign_out(.:format)                                users/sessions#destroy
+user_facebook_omniauth_authorize GET|POST /users/auth/facebook(.:format)                           users/omniauth_callbacks#passthru
+ user_facebook_omniauth_callback GET|POST /users/auth/facebook/callback(.:format)                  users/omniauth_callbacks#facebook
+               new_user_password GET      /users/password/new(.:format)                            users/passwords#new
+              edit_user_password GET      /users/password/edit(.:format)                           users/passwords#edit
+                   user_password PATCH    /users/password(.:format)                                users/passwords#update
+                                 PUT      /users/password(.:format)                                users/passwords#update
+                                 POST     /users/password(.:format)                                users/passwords#create
+        cancel_user_registration GET      /users/cancel(.:format)                                  users/registrations#cancel
+           new_user_registration GET      /users/sign_up(.:format)                                 users/registrations#new
+          edit_user_registration GET      /users/edit(.:format)                                    users/registrations#edit
+               user_registration PATCH    /users(.:format)                                         users/registrations#update
+                                 PUT      /users(.:format)                                         users/registrations#update
+                                 DELETE   /users(.:format)                                         users/registrations#destroy
+                                 POST     /users(.:format)                                         users/registrations#create
+                            home GET      /                                                        home#index
+                      about_cisa GET      /about-community-initiative-for-a-safer-africa(.:format) home#about_cisa
+                     cisa_causes GET      /cisa-causes(.:format)                                   home#causes
+                   cisa_programs GET      /cisa-programs(.:format)                                 home#programs
+                          events GET      /events(.:format)                                        home#events
+                            blog GET      /blog(.:format)                                          home#blog
+                      contact_us GET      /contact(.:format)                                       home#contact_us
+                    cisa_careers GET      /cisa-careers(.:format)                                  home#careers
+             cisa_career_details GET      /cisa-careers/:id(.:format)                              home#career_details
+                  cisa_resources GET      /cisa-resources(.:format)                                home#resources
+           cisa_resource_details GET      /cisa-resources/:id(.:format)                            home#resource_details
+                     paystackurl POST     /paystackurl(.:format)                                   donation#paystackUrl
+              anonymous_donation POST     /anonymous_donation(.:format)                            home#anonymous_donation
+                donation_success GET      /donation/success(.:format)                              donation#success
+
+Routes for Ckeditor::Engine:
+        pictures GET    /pictures(.:format)             ckeditor/pictures#index
+                 POST   /pictures(.:format)             ckeditor/pictures#create
+         picture DELETE /pictures/:id(.:format)         ckeditor/pictures#destroy
+attachment_files GET    /attachment_files(.:format)     ckeditor/attachment_files#index
+                 POST   /attachment_files(.:format)     ckeditor/attachment_files#create
+ attachment_file DELETE /attachment_files/:id(.:format) ckeditor/attachment_files#destroy

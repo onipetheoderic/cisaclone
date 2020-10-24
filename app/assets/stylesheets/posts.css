@@ -1,0 +1,8 @@
+.ck_error {
+    border-color: $red;
+  color: $red;
+  vertical-align: 3px;
+  .help-inline {
+    padding-left: 160px;
+  }
+}

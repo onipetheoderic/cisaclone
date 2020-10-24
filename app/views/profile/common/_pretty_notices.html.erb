@@ -1,0 +1,29 @@
+<script type="text/javascript">
+    <% flash.each do |k,v|
+      case k
+        when 'error'
+          title = 'An Error occured'
+        when 'notice'
+          title = 'Notification'
+        when 'success'
+          title = 'Success'
+        when 'warning'
+          title ='Warning'
+        when 'info'
+          title ='Information'
+        when 'alert'
+          title = 'Alert'
+        else
+          title ='Notification'
+        end
+
+
+            %>
+      new PNotify({
+                                    title: '<%= title %>',
+                                    text: '<%= v %>',
+                                    type: '<%= k %>',
+                                    styling: 'bootstrap3'
+                                });
+    <% end %>
+</script>

@@ -1,0 +1,25 @@
+<section class="sponser-section section-padding ash-white-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading text-center">
+                    <h2 class="section-title">OUr  <span class="base-color">Sponsors</span> </h2>
+                    <span class="section-sub-title">Our current List of sponsors</span>
+                    <div class="section-heading-separator"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="client-carusel">
+                  <% @sponsors.each do |sponsor| %>
+                    <div class="carusel-item">
+                        <%= image_tag(sponsor.logo.url, alt: "") %>
+                    </div>
+                  <% end %>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

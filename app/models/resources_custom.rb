@@ -1,0 +1,2 @@
+class ResourcesCustom < ApplicationRecord
+end

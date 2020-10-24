@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= metamagic %>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'profile', params[:controller], media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= yield(:head_css) %>
+
+  </head>
+
+  <body class="nav-md ">
+    <% if notice %>
+      <div id="notice_wrapper">
+          <p class="notice"><%= notice %></p>
+      </div>
+    <% elsif alert %>
+      <div id="notice_wrapper">
+        <p class="alert"><%= alert %> </p>
+      </div>
+    <% end %>
+   <script type="text/javascript">
+  $(document).ready(function(){
+  setTimeout(function(){
+      $('#notice_wrapper').slideUp('slow', function(){
+          $(this).remove();
+          })
+        }, 3000);
+});
+</script>
+    <div class="container body">
+      <div class="main_container">
+        <!-- side navigation -->
+        <%= render "profile/common/side_nav" %>
+        <!-- /side navigation -->
+
+        <!-- top navigation -->
+        <%= render 'profile/common/top_nav' %>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+       <%= yield(:page_content) %>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <style type="text/css">
+           footer {
+               position:absolute;
+              
+               height:60px;
+
+            }
+        </style>
+       
+        
+        <!-- /footer content -->
+      </div>
+    </div>
+<footer>
+  
+    
+          <p class="text-center">
+           
+       &copy; Copyright <%= Date.today.year %> &nbsp;<a href="#">Community Initiative For a Safer Africa</a>
+     </p>
+         
+        
+  
+</footer>
+
+    <%= javascript_include_tag 'profile', params[:controller] %>
+    <%= yield(:page_specific_js) %>
+  </body>
+</html>

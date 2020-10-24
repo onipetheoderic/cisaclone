@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>about-community-initiative-for-a-safer-africa! | </title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'cisa-manifest', media: 'all' %>
+
+     <%= yield(:head_css) %>
+
+
+  </head>
+
+  <body class="nav-md">
+
+
+    <div class="container body">
+      <div class="main_container">
+        <!-- side navigation -->
+        <%= render "member/partials/side_nav" %>
+        <!-- /side navigation -->
+
+        <!-- top navigation -->
+        <%= render 'member/partials/top_nav' %>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+       <%= yield(:page_content) %>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            &copy; Copyright <%= Date.today.year %> &nbsp;<a href="https://www.cisafrica.org">CISA</a>
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+      </div>
+    </div>
+
+      <%= javascript_include_tag 'cisa-manifest' %>
+    <!-- < %= yield(:bottom_js) %> -->
+    <%= yield(:page_specific_js) %>
+  </body>
+</html>

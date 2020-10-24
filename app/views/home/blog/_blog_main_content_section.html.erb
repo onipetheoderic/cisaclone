@@ -1,0 +1,27 @@
+<div class="main-content section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <%= render 'home/blog/blog_page_post_list' %>
+            </div>
+            <div class="col-md-4">
+                <aside class="sidebar">
+                    <form class="search-form widget">
+                        <input type="search" placeholder="Search" class="form-control search-form__input" />
+                        <button type="submit" class="search-form__submit"><i class="fa fa-search base-color"></i> </button>
+                    </form>
+                    <div class="widget">
+                        <div class="widget__heading">
+                            <h4 class="widget__title">UPCOMING <span class="base-color">EVENTS</span></h4>
+                        </div>
+                        <div class="widget__text-content">
+                            <%= render 'home/common/sidebar_upcoming_event_slide' %>
+                        </div>
+                    </div>
+                    <%= render 'home/common/sidebar_category' %>
+                    <%= render 'home/common/sidebar_tags' %>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>

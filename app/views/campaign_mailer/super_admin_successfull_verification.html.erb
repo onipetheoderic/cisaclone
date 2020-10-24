@@ -1,0 +1,11 @@
+<h3>Dear Admin</h3>
+
+<p>
+  <h2>The campaign named &nbsp; <%=  @campaign.name %> has been successfully Verified and Approved</h2>  <br />
+  <strong>Campaign Details</strong> <br />
+  <strong> Creator:  </strong><%= @campaign.user.firstname %><br />
+  <strong> Name:  </strong><%=  @campaign.name %><br />
+  <strong> Goal:  </strong><%=  number_to_currency @campaign.goal %><br />
+  <strong> Story:  </strong> <br />
+  <%= @campaign.story %><br />
+</p>

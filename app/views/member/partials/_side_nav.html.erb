@@ -1,0 +1,74 @@
+<div class="col-md-3 left_col menu_fixed">
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+
+                <%= link_to "<i class='fa fa-home'></i><span>CISA</span>".html_safe , "#", class: "site_title" %>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <!-- <div class="profile text-center" >
+
+              <span>Welcome,</span>
+              <h2>< %= current_user.fullname %></h2>
+              <div class="clearfix"></div>
+            </div> -->
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+
+                <ul class="nav side-menu">
+                  <li>
+                    <%= link_to " <i class='fa fa-dashboard'></i> Dashboard".html_safe, "#" %>
+
+                  </li>
+
+                  <!-- <li><a><i class="fa fa-edit"></i> My Account <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><%= link_to 'My Information', '/merchants/edit/' %></li>
+
+                      <li><%= link_to 'Change Store Password', '/merchant/store/change_password' %></li>
+                      <li><%= link_to 'Change Password', '/merchant/change_password/' %></li>
+                    </ul>
+                  </li> -->
+                  <li><a><i class="fa fa-credit-card-alt"></i> My Donations</a>
+
+                  </li>
+
+
+                  <li>
+                     <%= link_to "<i class='fa fa-power-off' ></i> Logout ".html_safe, destroy_user_session_path, method: :delete %>
+                  </li>
+
+                </ul>
+              </div>
+
+
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small">
+              <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+              </a>
+              <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+              </a>
+             <!-- <a data-toggle="tooltip" data-placement="top" title="Logout">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+              </a> -->
+              <%= link_to "<span class='glyphicon glyphicon-off' aria-hidden='true'></span>".html_safe, destroy_user_session_path, :method=>'delete' ,data: {toggle: "tooltip", placement:"top"} %>
+            </div>
+            <!-- /menu footer buttons -->
+          </div>
+        </div>

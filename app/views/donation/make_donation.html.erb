@@ -1,0 +1,42 @@
+<br>
+<br>
+<form class="contact-form">
+    <div class="row">
+
+
+<!--  -->
+<%= simple_form_for @donation do |f| %>
+    <%= f.error_notification %>
+
+<div class="col-lg-2 col-md-2 col-sm-2"></div>
+ <div class="col-sm-4 col-md-4 col-lg-4">
+    <div class="input-group">   
+    <%= f.input :amount, required: true, autofocus: true, class:"input-group__input form-control"%>
+    </div>
+</div>
+ <div class="col-sm-4 col-md-5 col-lg-4">
+    <div class="input-group">
+<%= f.input :purpose, required: true, placeholder:"Purpose", class:"input-group__input form-control" %>
+    </div>
+</div>
+</div>
+
+ <div class="input-group">
+    <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    <div class="col-lg-8 col-md-8 col-sm-8">
+      <%= f.input :message, required: true, class:"input-group__textarea form-control", placeholder:"Message" %>
+       </div>
+</div>
+
+<div class="col-lg-2 col-md-2 col-sm-2"></div>
+<div class="col-md-10 col-lg-10 col-sm-10">
+    <%= f.button :submit, "Submit", class:"btn base-bg" %>
+
+</div>
+<br>
+<% end %>
+
+<!--  -->
+
+<br>
+<br>

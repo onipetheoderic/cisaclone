@@ -1,0 +1,21 @@
+DB_ADAPTER: postgresql
+DB_ENCODING: unicode
+DB_HOST: localhost
+
+development:
+  DB_DEVELOPMENT_NAME: cisa_dev
+  DB_USERNAME: postgres
+  DB_PASSWORD: 
+
+test:
+  DB_TEST_NAME: cisa_test
+  DB_USERNAME: postgres
+  DB_PASSWORD: 
+
+production:
+  DB_PRODUCTION_NAME:cisa_prod
+  DB_USERNAME: postgres
+  DB_PASSWORD: 
+
+
+

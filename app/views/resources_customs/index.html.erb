@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All Resources </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Published</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @resources_customs.each do |resources_custom| %>
+      <tr>
+        <td><%= resources_custom.title %></td>
+        <td><%= resources_custom.description %></td>
+        <td><%= resources_custom.published %></td>
+      <% if user_signed_in? && current_user.admin %> 
+        <td><%= link_to 'Show', resources_custom %></td>
+        <td><%= link_to 'Edit', edit_resources_custom_path(resources_custom) %></td>
+        <td><%= link_to 'Destroy', resources_custom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Resources Custom', new_resources_custom_path %>

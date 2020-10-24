@@ -1,0 +1,111 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require css/font-awesome.min
+ *= require css/bootstrap.min
+ *= require css/magnific-popup
+ *= require css/select2.min
+ *= require css/settings
+ *= require css/layers
+ *= require css/navigation
+ *= require css/animate
+ *= require css/style
+ *= require_self
+ */
+
+ /* -----------------------------------
+ ** Banner
+ -------------------------------------*/
+ .auth-area {
+   position: relative;
+   background-size: cover;
+   background-position: center center;
+   padding-top: 15px;
+   padding-bottom: 15px;
+ }
+.main-margin {
+  margin-top: 140px;
+}
+ .invalid-feedback{
+   color: red
+ }
+ .is-invalid{
+  border: 1px solid red;
+ }
+
+ @media (max-width: 991px) {
+    .auth-area {
+     padding-top: 1px;
+     padding-bottom: 100px;
+    }
+    .main-margin {
+      margin-top: 90px;
+    }
+ }
+
+ @media  (max-width: 480px) {
+     .volunteer-img {
+    	max-width: 100%;
+    	height: inherit;
+    	padding-top: 0px;
+    }
+ }
+
+ @media  (max-width: 740px) {
+     .volunteer-img {
+     max-width: 100%;
+     height: inherit;
+     padding-top: 0px;
+    }
+ }
+
+ @media  (max-width: 667px) {
+     .volunteer-img {
+     max-width: 100%;
+     height: inherit;
+     padding-top: 0px;
+    }
+ }
+
+
+
+
+
+ .auth-area:before {
+   /*background: rgba(10, 170, 160, 0.7);*/
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   content: '';
+ }
+
+
+
+ .page-title {
+   font-size: 35px;
+   font-weight: 500;
+   margin-bottom: 15px;
+ }
+
+ @media (max-width: 991px) {
+   .page-title {
+     font-size: 40px;
+     margin-bottom: 0;
+   }
+ }
+
+
+ /* -----------------------------------
+ ** End Banner
+ -------------------------------------*/

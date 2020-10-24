@@ -1,0 +1,74 @@
+<%
+meta title: "Community Initiative For a Safer Africa | ",
+     description: "CISA"
+%>
+<% content_for(:page_content) do %>
+<!-- page content -->
+<div class="right_col" role="main">
+  <div class="">
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Campaigns  </h2>
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="x_content">
+
+            <h1>Edit Campaign</h1>
+
+            
+
+<%= simple_form_for(@campaign, url: campaign_path) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+
+    <%= f.association :campaign_category %>
+    <!-- < %= f.association :user %> -->
+    <%= f.input :name,hint: "Name" %>
+    <%= f.input :story %>
+    <!--  -->
+    <!-- <%= f.input :campaign_category_id, :collection => CampaignCategory.all, :prompt => "Select your age" %> -->
+    <!-- "campaign_category_id -->
+    <!-- < %= f.input :facebooK_shares %>
+    < %= f.input :twitter_shares %>
+    < %= f.input :likes %> -->
+    <%= f.input :goal %>
+    
+    <%= f.input :activated, :as => :hidden, input_html: {value: true} %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Activate", class: 'btn btn-success' %>
+    </div>
+<% end %>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+      $( "#campaign_user_id" ).select2({
+          theme: "bootstrap"
+      });
+      $( "#campaign_campaign_category_id" ).select2({
+            theme: "bootstrap"
+      });
+  });
+</script>
+
+
+            <%= link_to 'Back', campaigns_path %>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /page content -->
+<% end %>

@@ -1,0 +1,28 @@
+<div class="widget">
+    <div class="widget__heading">
+        <h4 class="widget__title">LATEST <span class="base-color">PROGRAMS</span></h4>
+    </div>
+    <div class="widget__text-content">
+        <% @programs.each do |program| %>
+            <div class="widget-latest-causes">
+                <div class="widget-latest-causes__image-wrap">
+                    <a href="#">
+                        <%=link_to (image_tag program.image.url(:medium), class: 'fund-event__image', alt: ""), program %>
+                    </a>
+                </div>
+                <div class="widget-latest-causes__text-content">
+                    <h4 class="widget-latest-causes__title"><a href="#"><%= program.title %></a></h4>
+                    <div class="widget-latest-causes__admin small-text">
+                        <i class="base-color fa fa-user widget-latest-causes__admin-icon"></i>
+                        by <a href="#">Admin</a>
+                    </div>
+                    <div class="widget-latest-causes__time text-mute">
+                        10 Minutes Ago
+                    </div>
+                </div>
+            </div><!--/.widget-latest-causes-->
+        <% end %>
+
+
+    </div>
+</div>

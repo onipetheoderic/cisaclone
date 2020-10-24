@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="menu-logo">
+        <div class="logo">
+            <%= link_to image_tag('home/logo.png', width: '150px', height: '100px') , home_path, class: 'logo-index' %>
+        </div>
+        <style type="text/css">
+  #floater: {
+    float: left;
+    overflow: hidden;
+    display: inline-block;
+  }
+  .btn: {
+    float: left;
+    overflow: hidden;
+    display: inline-block;
+  }
+  .sticky2 {
+    position: fixed;
+  }
+  .logo {
+    margin-right: 65px;
+  }
+</style>
+
+        <nav id="easy-menu">
+            <ul class="menu-list">
+                <li><%= link_to 'About Us', about_cisa_path %></li>
+                <li><%= link_to 'Programs',cisa_programs_path %></li>
+                <li><%= link_to 'Resources', cisa_resources_path %></li>
+                 <li><%= link_to 'Donate', cisa_programs_path %></li>
+                <li><%= link_to 'Contact', contact_us_path %> </li>
+                <li><%= link_to 'Careers', cisa_careers_path %> </li>
+           </ul>
+       </nav><!--#easy-menu-->
+
+       <div class="donate-button-wrap">
+        <% if user_signed_in? %>
+           <%= link_to "My Account", profile_dashboard_path, class: "btn btn-sm base-bg hidden-xs hidden-sm" %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-sm base-bg hidden-xs hidden-sm" %>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: "btn btn-sm base-bg hidden-xs hidden-sm" %>
+         <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-sm base-bg hidden-xs hidden-sm", id: "floater" %>
+        <% end %>
+
+            <a href="#" class="hidden-lg hidden-md" id="humbarger-icon"><i class="fa fa-bars"></i> </a>
+       </div>
+
+    </div>
+</div>

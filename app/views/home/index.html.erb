@@ -1,0 +1,32 @@
+<style type="text/css">
+	.stic {
+		margin-top: 40px;
+		position: fixed;
+
+	}
+    .main-margin {
+        margin-top: 140px;
+    }
+</style>
+
+<div class="slider-area">
+    <div class="main-menu-area main-menu-area--absolute stic">
+        	<%= render 'home/common/main_menu' %>
+    </div>
+
+    <div class="main-margin"></div>
+
+    <%= render 'home/index/slider' %>
+</div>
+
+
+ <div class="body-overlay"></div>
+
+ <%= render 'home/index/feature_section' %>
+ <%= render 'home/index/help_us_section' %>
+ <%= render 'home/index/sponsors_benefit' %>
+ <%= render 'home/common/volunteers_section' %>
+
+ <%= render 'home/index/upcoming_events_section' %>
+
+  <%= render 'home/contact/our_sponsors' %>

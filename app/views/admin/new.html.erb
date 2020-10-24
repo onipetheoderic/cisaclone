@@ -1,0 +1,44 @@
+<div class="container">
+  <br>
+  <br>
+  <br>
+  <br>
+  <h2> Admin Registration</h2>
+<div class="col-md-6 col-md-offset-4 centered">
+          <%= simple_form_for(@user,url: admin_index_path) do |f| %>
+
+            <%= f.error_notification %>
+ <div class="input-group"> 
+    <%= f.input :admin, :as => :hidden, input_html: {value: true} %>
+  </div>
+  <div class="input-group"> 
+    <%= f.input :role, :as => :hidden, input_html: {value: "admin"} %>
+  </div>
+   <div class="input-group"> 
+      <%= f.input :firstname, required: true, autofocus: true %>
+    </div>
+    <div class="input-group">
+      <%= f.input :lastname, required: true %>
+    </div>
+    <div class="input-group"> 
+      <%= f.input :email, required: true %>
+    </div>
+     <div class="input-group"> 
+    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+  </div>
+   <div class="input-group"> 
+    <%= f.input :password_confirmation, required: true %>
+  </div>
+ 
+
+  <div class="form-actions">
+    <%= f.button :submit, "Register" %>
+  </div>
+            <% end %>
+
+    <br>
+  <br>
+  <br>
+  <br>
+  </div><!-- /col -->
+</div><!-- /row -->

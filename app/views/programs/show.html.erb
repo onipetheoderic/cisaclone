@@ -1,0 +1,460 @@
+ <div class="main-menu-area">
+    <%= render "home/common/main_menu" %>
+ </div>
+
+ <div style="margin-top: 150px;">
+
+<p id="notice"><%= notice %></p>
+ <div id="overlay"></div>
+<style type="text/css">
+    .loader_image {
+    left : 50%;
+    top : 50%;
+    position : absolute;
+    z-index : 5;
+    width : 132px;
+    height : 132px;
+    margin-left : -16px;
+    margin-top : -16px;
+    }
+    #regsPayment {
+      padding-left: 130px;
+    }
+    #bottom {
+      padding-bottom: 30px;
+    }
+    #exit {
+      padding-top: 10px;
+    }
+    .anonymous_success_msg {
+      padding: 25px;
+    }
+    .success_modal_pretty {
+        position : absolute;
+        z-index : 4;
+        background-color: white;
+        /* Add shadows to create the "card" effect */
+        box-shadow: 10px 24px 28px 10px rgba(0,0,0,0.4);
+        transition: 0.3s;
+        border-radius: 25px 25px 25px 25px;
+        width: 500px;
+        height: 400px;
+        left : 35%;
+        top : 30%;
+    }
+    .theoderic_modal_beautiful {
+        position : absolute;
+        z-index : 3;
+        background-color: white;
+        /* Add shadows to create the "card" effect */
+        box-shadow: 10px 24px 28px 10px rgba(0,0,0,0.4);
+        transition: 0.3s;
+        border-radius: 5px 5px 0 0;
+        width: 500px;
+        height: 500px;
+        left : 35%;
+        top : 30%;
+    }
+    .theoderic2_modal_beautiful {
+        position : absolute;
+        z-index : 3;
+        background-color: white;
+        /* Add shadows to create the "card" effect */
+        box-shadow: 10px 24px 28px 10px rgba(0,0,0,0.4);
+        transition: 0.3s;
+        border-radius: 5px 5px 0 0;
+        width: 500px;
+        height: 300px;
+        left : 35%;
+        top : 30%;
+    }
+    .content {
+      padding: 30px;
+    }
+    .form_container {
+      padding-top: 50px;
+    }
+    .form_container2 {
+      padding-top: 20px;
+    }
+
+    #overlay {
+    position: fixed; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8); /* Black background with opacity */
+    z-index: 1; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+#label {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    height: 50px;
+    width: 50px;
+    background-color: pink;
+   border-radius: 50px;
+    text-align: center;
+}
+#label:hover {
+    background-color: red;
+    cursor: pointer;
+}
+#label:active {
+  background-color: red;
+  transform: translateY(4px);
+}
+.centerAlign {
+  padding-left: 50px;
+}
+.logo-index {
+  padding: 5px;
+}
+
+
+/**/
+#label2 {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    height: 50px;
+    width: 50px;
+    background-color: pink;
+   border-radius: 50px;
+    text-align: center;
+}
+
+#label2:hover {
+    background-color: red;
+    cursor: pointer;
+}
+#label2:active {
+  background-color: red;
+  transform: translateY(4px);
+}
+
+    /* On mouse-over, add a deeper shadow ₦*/
+    .success_msg:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+    }
+
+    /* Add some padding inside the card container */
+
+    </style>
+
+  <div class="row">
+    <%= image_tag('global_loader.gif', class: "loader_image") %>
+  <div class="col-md-1 col-lg-1"></div>
+  <div class="col-md-5">
+  <%= image_tag(@program.image.url(:medium), size: "542x342") %>
+  </div>
+  <div class="col-md-5 col-lg-5 col-sm-10">
+    <center>
+  <h2>  <%= @program.title %></h2>
+    </center>
+
+
+    <%= @program.description.html_safe %>
+
+
+  <p>
+    <strong>Location:</strong>
+    <%= @program.location %>
+  </p>
+
+  <div class="col-lg-2 col-md-2">
+    <strong>Starts at:</strong>
+    <%= @program.starts_at %>
+  </div>
+  <div class="col-lg-3 col-md-2">
+    <strong>Ends at:</strong>
+    <%= @program.ends_at %>
+  </div>
+
+  <% if user_signed_in? && current_user.admin %>
+      <p>
+        <strong>Published:</strong>
+        <%= @program.published %>
+      </p>
+
+      <p>
+        <strong>Active:</strong>
+        <%= @program.active %>
+      </p>
+       <p>
+        <strong>Active:</strong>
+        <%= @program.upcoming %>
+      </p>
+
+
+        <%= link_to 'Edit', edit_program_path(@program) %> |
+        <%= link_to 'Back', programs_path %>
+  <% end %>
+  </div>
+
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" id="bottom">
+  <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2"></div>
+
+  <div class="col-md-6 col-lg-6" ></div>
+    <% if user_signed_in? %>
+    <div id="regsPayment">
+  <button type="button" class="btn" id="regPayment"> Donate </button>
+  </div>
+  <% else %>
+  <button type="button" id="unregPayment" class="btn">Donate Anonymously</button>
+  <%= link_to "Login to Donate", new_user_session_path, class: "btn" %>
+  <div class="col-md-2 col-lg-2"></div>
+  <% end %>
+</div>
+
+</div>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.success_modal_pretty').hide();
+
+  $('.theoderic_modal_beautiful').hide();
+  $('.theoderic2_modal_beautiful').hide();
+  $('.loader_image').hide()
+  $('#overlay').hide();
+
+  $('#regPayment').click(function(){
+    $('#overlay').show();
+    $('.theoderic_modal_beautiful').show();
+
+    $('#label').click(function(){
+      $('.theoderic_modal_beautiful').hide(200);
+       $('#overlay').hide();
+
+    })
+  })
+
+
+  $('#unregPayment').click(function(){
+    $('#overlay').show();
+    $('.theoderic2_modal_beautiful').show();
+
+    $('#label2').click(function(){
+      $('.theoderic2_modal_beautiful').hide(200);
+       $('#overlay').hide();
+    })
+  })
+});
+
+function payWithPaystack2(){
+    $('.loader_image').show()
+    $('#overlay').show()
+    $( ":input" ).prop('disabled', true);
+    var response_reference = undefined
+    var amount = document.getElementById("amount_unreg").value;
+    var user_email = document.getElementById("email_unreg").value;
+
+    var parsed_amount = amount + '00'
+    var parsed_float = parseFloat(parsed_amount)
+    var handler = PaystackPop.setup({
+      key: 'pk_test_07f9b2e4b6fa9278e6ceb8e9d3d0a024c33b5dc1',
+      email: user_email,
+      amount: parsed_float,
+      ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+      metadata: {
+         custom_fields: [
+            {
+                display_name: "Mobile Number",
+                variable_name: "mobile_number",
+                value: "+2348012345678"
+            }
+         ]
+      },
+      callback: function(response){
+
+          var response_reference = response.reference
+          $('.loader_image').hide()
+           $('.success_msg').show()
+           $('.theoderic2_modal_beautiful').hide();
+           $('.success_modal_pretty').show();
+          if(response_reference != undefined){
+            console.log("this is the reference", response_reference);
+           //end
+          }
+      },
+      onClose: function(){
+          alert('window closed');
+           $('.loader_image').hide()
+           $('#overlay').hide()
+           $('.theoderic2_modal_beautiful').hide();
+
+      }
+    });
+    handler.openIframe();
+  }
+
+</script>
+<div class="theoderic_modal_beautiful">
+  <div id="label"><h3 id="exit">X</h3></div>
+
+  <div class="content">
+    <div class="centerAlign">
+    <%= link_to image_tag('master.png', width: '100px', height: '56px') , home_path, class: 'logo-index' %>
+    <%= link_to image_tag('visa.png', width: '100px', height: '62px') , home_path, class: 'logo-index' %>
+    <%= link_to image_tag('verve.png', width: '100px', height: '35px') , home_path, class: 'logo-index' %>
+    </div>
+     <% if user_signed_in? %>
+        <input type="hidden" name="user_id" id="user_id" value='<%= current_user.id %>' >
+        <input type="hidden" name="user_email" id="user_email" value='<%= current_user.email %>' >
+      <% end %>
+        <input type="hidden" name="campaign_id" id="campaign_id" value='<%= @program.id %>' >
+
+    <div class="form_container">
+    <input type="number" name="amount" id="amount" placeholder="amount ₦" class="input-group__input form-control">
+    </div>
+    <div class="form_container2">
+    <input type="text" name="purpose" id="purpose" placeholder="Purpose" class="input-group__input form-control">
+    </div>
+    <div class="form_container2">
+    <textarea name="message" id="message" placeholder="message" class="input-group__textarea form-control"></textarea>
+  </div>
+
+  <div class="form_container2">
+  <button type="button" onclick="payWithPaystack()" class="btn base-bg"> Pay </button>
+</div>
+  </div>
+</div>
+
+
+
+<div class="theoderic2_modal_beautiful">
+
+  <div id="label2"><h3 id="exit">X</h3></div>
+
+  <div class="content">
+    <div class="centerAlign">
+    <%= link_to image_tag('master.png', width: '100px', height: '56px') , home_path, class: 'logo-index' %>
+    <%= link_to image_tag('visa.png', width: '100px', height: '62px') , home_path, class: 'logo-index' %>
+    <%= link_to image_tag('verve.png', width: '100px', height: '35px') , home_path, class: 'logo-index' %>
+    </div>
+    <div class="form_container">
+
+    <input type="number" name="amount" id="amount_unreg" placeholder="amount ₦" class="input-group__input form-control">
+    </div>
+    <div class="form_container2">
+    <input type="email" name="email" id="email_unreg" placeholder="Email" class="input-group__input form-control">
+    </div>
+
+
+  <div class="form_container2">
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+  <button type="button" onclick="payWithPaystack2()" class="btn base-bg"> Pay </button>
+</div>
+  </div>
+</div>
+
+<div class="success_modal_pretty">
+  <div class="content_msg">
+   <center>
+    <h2 class="anonymous_success_msg"> Thanks for your Generous Donation, You Identity remains Anonymous</h2>
+   <%= link_to 'Back', cisa_programs_path, class:"btn base-bg"%>
+
+  </center>
+  </div>
+</div>
+
+
+
+<div class="success_modal_pretty">
+  <div class="content_msg">
+   <center>
+    <h2 class="anonymous_success_msg"> Thanks for your generous donation</h2><strong><h2 class="namer"> </h2></strong></h2>
+   <%= link_to 'Back', cisa_programs_path, class:"btn base-bg"%>
+
+  </center>
+  </div>
+</div>
+<script>
+function payWithPaystack(){
+    $('.loader_image').show();
+    $('#overlay').show()
+    $( ":input" ).prop('disabled', true);
+    var response_reference = undefined
+    var amount = document.getElementById("amount").value;
+    var user_id = document.getElementById("user_id").value;
+    var user_email = document.getElementById("user_email").value;
+    var campaign_id = document.getElementById("campaign_id").value;
+    var purpose = document.getElementById("purpose").value;
+    var message = document.getElementById("message").value
+    var parsed_amount = amount + '00'
+    var parsed_float = parseFloat(parsed_amount)
+    var handler = PaystackPop.setup({
+      key: 'pk_test_07f9b2e4b6fa9278e6ceb8e9d3d0a024c33b5dc1',
+      email: user_email,
+      amount: parsed_float,
+      ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+      metadata: {
+         custom_fields: [
+            {
+                display_name: "Mobile Number",
+                variable_name: "mobile_number",
+                value: "+2348012345678"
+            }
+         ]
+      },
+      callback: function(response){
+          var amount = document.getElementById("amount").value;
+          var user_id = document.getElementById("user_id").value;
+          var campaign_id = document.getElementById("campaign_id").value;
+          var parsed_amount = amount + '00'
+          var parsed_float = parseFloat(parsed_amount)
+          var purpose = document.getElementById("purpose").value;
+          var message = document.getElementById("message").value
+          //alert('success. transaction ref is ' + response.reference);
+          var response_reference = response.reference
+          if(response_reference != undefined){
+            console.log("this is the reference", response_reference);
+            // start
+            $.ajax({
+              url:'/donation',
+              type:'POST',
+              dataType:'json',
+              data:{
+                response_reference: response_reference,
+                amount: amount,
+                user_id: user_id,
+                user_email: user_email,
+                purpose: purpose,
+                message: message,
+                parsed_float: parsed_float,
+                campaign_id: campaign_id,
+                authenticity_token: window._token
+                },
+              success:function(data){
+                console.log(data)
+
+                $('.loader_image').hide()
+                $('.theoderic_modal_beautiful').hide();
+                $('.success_modal_pretty').show();
+                $('.namer').text(data.user_fullname)
+              },
+              error:function(data){
+                console.log(data)
+                 $('.loader_image').hide();
+                 // $('#overlay').hide()
+
+              }
+            });
+            //end
+          }
+      },
+      onClose: function(){
+          alert('window closed');
+           $('.loader_image').hide()
+           $('#overlay').hide()
+            $( ":input" ).prop('disabled', false);
+      }
+    });
+    handler.openIframe();
+  }
+</script>
+</div>

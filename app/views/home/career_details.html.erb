@@ -1,0 +1,43 @@
+<div class="main-menu-area">
+   <%= render "home/common/main_menu" %>
+</div>
+
+<div class="banner-area banner-area--about-us all-text-white text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-title">Careers</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="body-overlay"></div>
+<section class="section-padding ash-white-bg">
+    <div class="container">
+      <h4>Job Title: <%= @career.title %></h4>
+      <div class="row">
+        <div class="col-md-12">
+          <%= @career.description.html_safe %>
+        </div>
+<br>
+<br/>
+        <div class="col-md-6">
+          <br>
+          <h4>Responsibility</h4>
+          <%= @career.responsibility %>
+        </div>
+
+        <div class="col-md-6">
+               <br>
+          <h4>Duty</h4>
+          <%= @career.duty%>
+        </div>
+        <div class="col-md-6">
+               <br>
+          <h4>Skills</h4>
+          <%= @career.skills %>
+        </div>
+      </div>
+    </div>
+</section>

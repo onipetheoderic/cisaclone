@@ -1,0 +1,74 @@
+<section class="volunteer-section section-padding ash-white-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading text-center">
+                    <h2 class="section-title wow fadeInUpXsd" data-wow-duration=".7s" data-wow-delay=".1s">Our <span class="base-color">VOLUNTEERS</span> </h2>
+                    <span class="section-sub-title wow fadeInUpXsd disinb" data-wow-duration=".9s" data-wow-delay=".1s">Our Volunteers</span>
+                    <div class="section-heading-separator wow fadeInUpXsd" data-wow-duration="1.1s" data-wow-delay=".1s"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-eq-rs-height">
+          <% @volunteers.each do |volunteer| %>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="fund-volunteer text-center wow fadeInUpSmd" data-wow-duration="1.5s" data-wow-delay=".2s">
+                    <div class="fund-volunteer__photo-wrap">
+                        <%= image_tag(volunteer.photo.url, class: 'img-circle fund-volunteer__photo volunteer-img', alt: 'volunteer') %>
+                    </div>
+                    <div class="fund-volunteer__text-content">
+                        <h3 class="fund-volunteer__name"><%= volunteer.full_name %></h3>
+                        <div class="section-heading-separator section-heading-separator--small"></div>
+                        <p><%= volunteer.description %></p>
+                        <ul class="list-inline round-social-icons mb30">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                        <!-- <a href="#" class="btn">Read More</a> -->
+                    </div>
+                </div><!--/.fund-volunteer-->
+            </div>
+            <% end %>
+            <!-- <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="fund-volunteer text-center wow fadeInUpSmd" data-wow-duration="1.5s" data-wow-delay=".4s">
+                    <div class="fund-volunteer__photo-wrap">
+                      <%= image_tag('home/vol-2.jpg', class: 'img-circle fund-volunteer__photo', alt: 'volunteer') %>
+                    </div>
+                    <div class="fund-volunteer__text-content">
+                        <h3 class="fund-volunteer__name">Emeka Onyekeru</h3>
+                        <div class="section-heading-separator section-heading-separator--small"></div>
+                        <p>I really enjoyed my time volunteering at CISA. The staff are always so warm, welcoming, accommodating and helpful. I really feel like we were making a difference and giving back to the community.</p>
+                        <ul class="list-inline round-social-icons mb30">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="fund-volunteer text-center wow fadeInUpSmd" data-wow-duration="1.5s" data-wow-delay=".6s">
+                    <div class="fund-volunteer__photo-wrap">
+                      <%= image_tag('home/vol-3.jpg', class: 'img-circle fund-volunteer__photo', alt: 'volunteer') %>
+                    </div>
+                    <div class="fund-volunteer__text-content">
+                        <h3 class="fund-volunteer__name">Aishat Haruna</h3>
+                        <div class="section-heading-separator section-heading-separator--small"></div>
+                        <p>I wanted to help others and I had time to spare. Volunteering gives me a sense of being useful. I really enjoy volunteering at CISA. I have made some lovely friends.</p>
+                        <ul class="list-inline round-social-icons mb30">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</section>

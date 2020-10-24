@@ -1,0 +1,61 @@
+<% content_for(:page_content) do %>
+<!-- page content -->
+<style type="text/css">
+
+span{
+    font-size:15px;
+}
+.box1{
+    margin: 1px 1px 10px 230px;
+    overflow: hidden;
+    border: 1px solid #E5E5FF;
+    background-color: #E5E5FF;
+}
+
+.box-part{
+    background:#FFF;
+    border-radius:0;
+    padding:10px 10px;
+    margin:10px 0px;
+}
+.text{
+    margin:20px 0px;
+}
+
+
+</style>
+<div class="box1">
+    <div class="container">
+      <div class="row">
+       <% @unread_msgs.each do |unread| %>
+        <div class="col-lg-1 col-md-1 col-sm-1"></div> <div class="col-lg-9 col-md-9 col-sm-9">
+               
+          <div class="box-part text-center">
+            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                     
+            </a>                       
+       
+             <div class="title">
+              <h4><%= unread.subject %></h4>
+            </div>
+
+                        
+            <div class="text">
+              <span><%= unread.message %></span>                
+            </div>
+                        
+             <%= link_to "View", profile_path(:id => unread.id), method: 'get', class:"btn base-bg" %>
+                        
+           </div>
+        </div>   
+      <% end %>
+        
+
+    
+    </div>    
+    </div>
+</div>
+<% end %>
+
+
+

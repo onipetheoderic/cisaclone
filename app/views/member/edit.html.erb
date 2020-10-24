@@ -1,0 +1,79 @@
+
+
+<% content_for(:page_content) do %>
+  <!-- page content -->
+        <div class="right_col" role="main">
+          <div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>CHANGE PASSWORD</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Change your password</h2>
+
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+                      <%= form_for(@user, validate: true, :url => { :action => "update_password" },html: { method: :put } ) do |f| %>
+
+                            <div class="row">
+                              <div class="col-md-6">
+                                <%= f.label "Enter password" %><br />
+                                <%= f.password_field :current_password,:class=>'form-control input-sm' %>
+                              </div>
+
+                            </div>
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <%= f.label "New password" %>
+                                  <%= f.password_field :password, autocomplete: "off", :class=>'form-control input-sm' %>
+                                  <% if @minimum_password_length %>
+                                  <em class="help-block">(<%= @minimum_password_length %> characters minimum)</em>
+                                  <% end %>
+
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <%= f.label "Re-type password" %><br />
+                                  <%= f.password_field :password_confirmation, autocomplete: "off", :class=>'form-control input-sm'%>
+                                </div>
+                              </div>
+                            </div>
+
+
+                            <div class="actions form-group">
+                                <button type="submit" class="btn btn-success btn-sm">
+                                  <i class="glyphicon glyphicon-edit"></i> Edit Password
+                                </button>
+                              </div>
+                          <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /page content -->
+<% end %>
+
+<% content_for(:page_specific_js) do %>
+  <%= render "member/partials/pretty_notices" %>
+<% end %>

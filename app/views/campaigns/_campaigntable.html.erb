@@ -1,0 +1,109 @@
+<%
+meta title: "Community Initiative For a Safer Africa | ",
+     description: "CISA"
+%>
+<% content_for(:page_content) do %>
+<!-- page content -->
+<div class="right_col" role="main">
+  <div class="">
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Campaigns  </h2>
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="x_content">
+            <%= link_to 'Add New Campaign', new_campaign_path, class:"btn btn-sm btn-success" %>
+
+            <div class="table-responsive">
+              <table id="datatable" class="table table-striped jambo_table bulk_action">
+                <thead>
+                  <tr class="headings">
+                    <th>
+                      <input type="checkbox" id="check-all" class="flat">
+                    </th>
+                    <th class="column-title"> Category</th>
+                    <th class="column-title">Name </th>
+                    <th class="column-title">Amount Raised </th>
+                    <th class="column-title no-link last"><span class="nobr">Action</span>
+                    </th>
+                    <th class="bulk-actions" colspan="7">
+                      <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @campaigns.each do |campaign| %>
+                    <tr class="even pointer">
+                      <td class="a-center ">
+                        <input type="checkbox" class="flat" name="table_records">
+                      </td>
+                      <td class=" "><%= campaign.campaign_category.name %></td>
+                      <td class=" "><%= campaign.name %></td>
+                      <td class="a-right a-right ">$7.45</td>
+                      <td class=" last">
+                        <%= link_to 'View', campaign %>
+                        <%= link_to 'Edit', edit_campaign_path(campaign) %>
+                        <%= link_to 'Delete', campaign, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+              <%= link_to 'New Campaign', new_campaign_path, class:"btn btn-sm btn-success" %>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /page content -->
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Campaigns</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Campanign category</th>
+      <th>User</th>
+      <th>Name</th>
+      <th>Story</th>
+      <th>Facebook shares</th>
+      <th>Twitter shares</th>
+      <th>Likes</th>
+      <th>Goal</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @campaigns.each do |campaign| %>
+      <tr>
+        <td><%= campaign.campaign_category %></td>
+        <td><%= campaign.user %></td>
+        <td><%= campaign.name %></td>
+        <td><%= campaign.story %></td>
+        <td><%= campaign.facebooK_shares %></td>
+        <td><%= campaign.twitter_shares %></td>
+        <td><%= campaign.likes %></td>
+        <td><%= campaign.goal %></td>
+        <td><%= link_to 'Show', campaign %></td>
+        <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
+        <td><%= link_to 'Destroy', campaign, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

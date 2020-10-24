@@ -1,0 +1,11 @@
+<h3>Dear Admin</h3>
+
+<p>
+  A new campaign request was just Updated<br />
+  <strong>Campaign Details</strong> <br />
+  <strong> Creator:  </strong><%= @campaign.user.firstname %><br />
+  <strong> Name:  </strong><%=  @campaign.name %><br />
+  <strong> Goal:  </strong><%=  number_to_currency @campaign.goal %><br />
+  <strong> Story:  </strong> <br />
+  <%= @campaign.story %><br />
+</p>

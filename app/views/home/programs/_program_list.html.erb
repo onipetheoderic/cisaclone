@@ -1,0 +1,44 @@
+<div class="fund-events">
+<!--  -->
+<!--  -->
+<% @programs.each do |program| %>
+    <div class="fund-event">
+        <div class="fund-event__date">
+        <span class="fund-event__day base-color"><%= program.created_at.day %></span>
+           <span class="small-text nv-color"><%= program.created_at.month %> - <%= program.created_at.year %></span>
+        </div>
+
+
+        <div class="fund-event__main">
+            <div class="fund-event__image-content">
+                <div class="fund-event__image-wrap">
+                <%=link_to (image_tag program.image.url(:medium), size: "233x157", class: 'fund-event__image', alt: ""), program %>
+                <!-- 233*157 -->
+
+                </div>
+                <div class="fund-event__text-content">
+                    <h4 class="fund-event__title"> <%=link_to program.title, program %></h4>
+                    <div class="fund-event__time">
+                        <i class="fa fa-calendar fund-event__icon base-color"></i><%= program.starts_at %> to <%= program.ends_at %>
+                    </div>
+                    <div class="fund-event__address">
+                        <i class="fa fa-map-marker fund-event__icon base-color"></i><%= program.location %>
+                    </div>
+                    <div class="fund-event__ticket-price">
+                        <i class="fa fa-ticket fund-event__icon base-color"></i><%= program.goal %>
+                    </div>
+                </div>
+            </div>
+            <%= program.short_description.html_safe %>
+        </div>
+    </div><!--/.fund-event-->
+<% end %>
+    <!--  -->
+
+
+</div>
+<div class="fund-pagination mb30">
+    <a href="#" class="active">1</a>
+    <a href="#">2</a>
+    <a href="#" class="next">Next</a>
+</div>

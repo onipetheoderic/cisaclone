@@ -1,0 +1,28 @@
+<div class="section-heading">
+    <h2 class="section-title section-title--small wow fadeInUpXsd" data-wow-duration=".7s" data-wow-delay=".1s">UPCOMING  <span class="base-color">PROGRAMS</span></h2>
+    <div class="section-heading-separator section-heading-separator--left-align wow fadeInUpXsd" data-wow-duration=".9s" data-wow-delay=".1s"></div>
+</div>
+<div class="upcommig-event-carousel wow fadeInUpXsd" data-wow-duration=".7s" data-wow-delay=".3s">
+<% @programs.each do |program| %>
+    <div class="upcomming-event">
+        <div class="upcomming-event__image-wrap">
+
+           <%=link_to (image_tag program.image.url(:medium), class: 'upcomming-event__image', alt: ""), program %>
+            <div class="upcomming-event__date">
+                <i class="fa fa-calendar"></i>
+                <span><%= program.created_at.day %>&nbsp;<%= program.created_at.month %></span>
+            </div>
+        </div>
+        <div class="upcomming-event__text-content">
+            <h4 class="upcomming-event__title"><a href="#"><%= program.title %></a></h4>
+            <div class="upcomming-event__meta-info">
+                <span class="upcomming-event__time"><i class="fa fa-clock-o base-color"></i><%= program.starts_at %> to <%= program.ends_at %>  </span>
+                <span class="upcomming-event__place"><i class="fa fa-map-marker base-color"></i><%= program.location %></span>
+            </div>
+            <%= program.description.html_safe %>
+
+        </div>
+    </div><!--/.upcomming-event-->
+    <% end %>
+
+</div>

@@ -1,0 +1,50 @@
+<div class="contact-form">
+    <div class="row">
+<%= simple_form_for @contact, :url => contact_path(@contact) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        <div class="col-sm-6">
+            <div class="input-group">
+                <%= f.input :firstname, class:"input-group__input form-control", placeholder: "First Name" %>
+
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="input-group">
+                <%= f.input :lastname, class: "input-group__input form-control", placeholder: 'Last Name' %>
+
+            </div>
+        </div>
+              <div class="col-sm-6">
+            <div class="input-group">
+                <%= f.input :email, class:"input-group__input form-control", placeholder: "Email" %>
+
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="input-group">
+                <%= f.input :phone, class: "input-group__input form-control", placeholder: 'Phone' %>
+
+            </div>
+        </div>
+    </div>
+    <div class="input-group">
+        <%= f.input :subject, placeholder: "Subject", class: "input-group__input form-control" %>
+
+    </div>
+    <div class="input-group">
+      <%= f.label :message %>
+
+        <%= f.text_area :message, required: true, class:"input-group__textarea form-control", placeholder:"Type your message heres", rows:"8", cols:"80" %>
+
+    </div>
+
+    <div class= "hidden">
+        <%= f.label :nickname %>
+        <%= f.text_field :nickname, :hint => 'Leave this field blank!' %>
+      </div>
+
+    <%= f.button :submit, class: "btn base-bg" %>
+    <% end %>
+    <span class="text-mute pdl15">* All fields are mandatory</span>
+</div>

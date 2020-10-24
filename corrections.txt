@@ -1,0 +1,17 @@
+1. Dont save database credentials in database.yml file. use figaro gem to set it as environment variable
+
+2. Change the first image on the slide on the homepage so that the caption text will be visible ***DONE
+3. Remove lorem ipsum text on the second slide on the homepage ***DONE
+4. Replace all placeholder text on the homepage.***DONE
+5. Change "become donor" to "become a sponsor" on the homepage in how tou can help us section ***DONE
+6. create "sponsors benefit" section under "how you can help us" section ***DONE
+7. Change "upcoming events" to "Upcoming Programs" on the homepage ***DONE
+
+8. See attached folder for careers page
+9. change "upcoming events" to "upcoming programs" on causes page ***DONE
+10. Add header and footer to the login and registration pages *** DONE	
+11. Centralize the login and registration form *** DONE
+12. Change contact email to ask@cisafrica.org on the contact page ***DONE
+13. Change the cotact number on the header and contact pages
+
+14. use "our sponsors" section on the contact page to create a new section on the homepage called "our legal partners" and put the logo of the partner  *** DONE

@@ -1,0 +1,2 @@
+module Profile::DashboardHelper
+end

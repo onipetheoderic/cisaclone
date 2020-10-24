@@ -1,0 +1,72 @@
+
+/* for fancy box demo stores section */
+.imgContainer {
+  
+  height: 262px;
+  overflow: hidden;
+  text-align: center;
+  margin: 10px 1% 10px 1%; 
+  width: 31%;
+  
+  display: inline-block ;
+  position: relative;
+}
+.imgContainer .overlay{
+  display: none;
+}
+.imgContainer:hover .overlay{
+  background: url(../images/fade-bg.png);
+  width: 100%;
+  height:100%;
+  position: absolute;
+  z-index: 999;
+  display: block;
+  left: 0;
+  top: 0;
+
+}
+.view-store{
+  background: url(../images/magnifier.png) no-repeat 50% 0%;
+  top: 50%;
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1000;
+  padding-left: 120px;
+}
+#galleryTab {
+  margin: 70px 5px 20px 0;
+  top: 26px;
+  font-size:18px;
+  color:#999;
+  text-align:center;
+}
+.galleryWrap {
+  padding: 0 0 30px;
+ text-align: left;
+}
+.filter {
+  
+  color: #999;
+  display:inline-block;
+  font-size: 18px;
+  margin: 0 20px  0;
+  padding: 5px 0px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 300;
+ 
+}
+.filter:hover {
+  border-bottom:2px solid #1c80b5;
+}
+.filter.active {
+  
+  border-bottom:2px solid #1c80b5;
+  color: #000;
+  cursor: default;
+ 
+}
+ a.filter:hover{
+	text-decoration:none;}

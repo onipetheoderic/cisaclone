@@ -1,0 +1,19 @@
+<section class="section-padding ash-white-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading ">
+                    <h2 class="section-title text-center" >  <span class="base-color">CISA</span> Privacy Policy </h2>
+
+
+                  <% unless @policy.nil? %>
+                    <%= @policy.content.html_safe %>
+                  <% end %>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

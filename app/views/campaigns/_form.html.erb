@@ -1,0 +1,39 @@
+
+
+<%= simple_form_for(@campaign, url: campaigns_path) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+
+    <%= f.association :campaign_category %>
+    <!-- < %= f.association :user %> -->
+    <%= f.input :name,hint: "Name" %>
+    <%= f.input :story %>
+    
+    <!--  -->
+    <!-- <%= f.input :campaign_category_id, :collection => CampaignCategory.all, :prompt => "Select your age" %> -->
+    <!-- "campaign_category_id -->
+    <!-- < %= f.input :facebooK_shares %>
+    < %= f.input :twitter_shares %>
+    < %= f.input :likes %> -->
+    <%= f.input :goal %>
+     <%= f.input :image, as: :file %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+      $( "#campaign_user_id" ).select2({
+          theme: "bootstrap"
+      });
+      $( "#campaign_campaign_category_id" ).select2({
+            theme: "bootstrap"
+      });
+  });
+</script>

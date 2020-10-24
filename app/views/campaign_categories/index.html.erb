@@ -1,0 +1,73 @@
+<%
+meta title: "Community Initiative For a Safer Africa | ",
+     description: "CISA"
+%>
+
+<% content_for(:page_content) do %>
+
+<!-- page content -->
+<div class="right_col" role="main">
+  <div class="">
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Campaign Categories </h2>
+
+            <div class="clearfix"></div>
+          </div>
+
+          <div class="x_content">
+            <%= link_to 'Add New Category', new_campaign_category_path, class:"btn btn-sm btn-success" %>
+
+            <div class="table-responsive">
+              <table id="datatable" class="table table-striped jambo_table bulk_action">
+                <thead>
+                  <tr class="headings">
+                    <th>
+                      <input type="checkbox" id="check-all" class="flat">
+                    </th>
+                    <th class="column-title"> Category</th>
+                    <th class="column-title">Description </th>
+                    <th class="column-title">Total Campaigns </th>
+                    <th class="column-title">Amount Raised </th>
+                    <th class="column-title no-link last"><span class="nobr">Action</span>
+                    </th>
+                    <th class="bulk-actions" colspan="7">
+                      <a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+                    </th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% @campaign_categories.each do |campaign_category| %>
+                    <tr class="even pointer">
+                      <td class="a-center ">
+                        <input type="checkbox" class="flat" name="table_records">
+                      </td>
+                      <td class=" "><%= campaign_category.name %></td>
+                      <td class=" "><%= campaign_category.description %></td>
+                      <td class=" "><%= campaign_category.try(:campaings) %></td>
+                      <td class="a-right a-right ">$7.45</td>
+                      <td class=" last">
+                        <%= link_to 'View', campaign_category %>
+                        <%= link_to 'Edit', edit_campaign_category_path(campaign_category) %>
+                        <%= link_to 'Delete', campaign_category, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /page content -->
+
+<% end %>

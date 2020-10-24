@@ -1,0 +1,2 @@
+class TandC < ApplicationRecord
+end

@@ -1,0 +1,217 @@
+<div class="all_content">
+    <center><h2><%= @campaign_show.name %></h2></center>
+    <p style="padding-left: 20px"><%= @campaign_show.story %></p>
+
+    <%= image_tag('global_loader.gif', class: "loader_image") %>
+    <style type="text/css">
+    .loader_image {
+    left : 50%;
+    top : 50%;
+    position : absolute;
+    z-index : 231;
+    width : 132px;
+    height : 132px;
+    margin-left : -16px;
+    margin-top : -16px;
+    }
+    .success_container {
+      padding: 50px;
+       background-color: white;
+      z-index : 3031;
+    }
+    .namer {
+      color: green;
+      text-shadow: 2px 2px 4px #000000;
+      z-index : 301;
+    }
+    .success_msg {
+      position : absolute;
+    z-index : 3031;
+    background-color: white;
+        /* Add shadows to create the "card" effect */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        border-radius: 5px 5px 0 0;
+        width: 500px;
+        height: 500px;
+        left : 35%;
+        top : 50%;
+
+    }
+    #overlay {
+    position: fixed; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.8); /* Black background with opacity */
+    z-index: 200; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+    /* On mouse-over, add a deeper shadow */
+    .success_msg:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+    }
+
+    /* Add some padding inside the card container */
+
+    </style>
+
+
+    <h5><%= @campaign_show.goal %></h5>
+
+    <div class="row">
+      <center>
+      <h4> Donate to <%= @campaign_show.name %></h4>
+    </center>
+    </div>
+    <div class="success_msg">
+      <center>
+        <div class="success_container">
+        <h2>Thanks for your Generous Donation, <strong><h2 class="namer"> </h2></strong></h2>
+      <%= link_to 'Back', cisa_causes_path, class:"btn base-bg"%>
+      </center>
+    </div>
+</div>
+
+<div class="all_content">
+ <div id="overlay"></div>
+  <form class="contact-form">
+    <div class="row">
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+
+        <input type="hidden" name="user_id" id="user_id" value='<%= current_user.id %>' >
+         <input type="hidden" name="user_email" id="user_email" value='<%= current_user.email %>' >
+         <input type="hidden" name="campaign_id" id="campaign_id" value='<%= @campaign_show.id %>' >
+
+  <div class="col-lg-2 col-md-2 col-sm-2"></div>
+   <div class="col-sm-4 col-md-4 col-lg-4">
+      <div class="input-group">
+            <input type="text" name="purpose" id="purpose" placeholder="Purpose" class="input-group__input form-control">
+      </div>
+  </div>
+   <div class="col-sm-4 col-md-5 col-lg-4">
+      <div class="input-group">
+          <input type="number" name="amount" id="amount" placeholder="amount" class="input-group__input form-control">
+      </div>
+  </div>
+  </div>
+
+  <div class="input-group">
+    <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    <div class="col-lg-8 col-md-8 col-sm-8">
+        <textarea name="message" id="message" placeholder="message" class="input-group__textarea form-control"></textarea>
+    </div>
+  </div>
+
+  <div class="col-lg-2 col-md-2 col-sm-2"></div>
+  <div class="col-md-10 col-lg-10 col-sm-10">
+
+    <button type="button" onclick="payWithPaystack()" class="btn base-bg"> Pay </button>
+    <button type="button" id="completeTransaction" class="btn base-bg">Complete Transaction</button>
+
+        </div>
+      <br>
+      <br>
+      <br>
+  </form>
+   <br>
+      <br>
+      <br>
+</div>
+<script>
+$(document).ready(function(){
+  $('#completeTransaction').hide()
+  $('.loader_image').hide()
+   $('.success_msg').hide()
+    $('#overlay').hide()
+});
+  function payWithPaystack(){
+    $('.loader_image').show()
+    $('#overlay').show()
+    $( ":input" ).prop('disabled', true);
+    var response_reference = undefined
+    var amount = document.getElementById("amount").value;
+    var user_id = document.getElementById("user_id").value;
+    var user_email = document.getElementById("user_email").value;
+    var campaign_id = document.getElementById("campaign_id").value;
+    var purpose = document.getElementById("purpose").value;
+    var message = document.getElementById("message").value
+    var parsed_amount = amount + '00'
+    var parsed_float = parseFloat(parsed_amount)
+    var handler = PaystackPop.setup({
+      key: 'pk_test_07f9b2e4b6fa9278e6ceb8e9d3d0a024c33b5dc1',
+      email: user_email,
+      amount: parsed_float,
+      ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+      metadata: {
+         custom_fields: [
+            {
+                display_name: "Mobile Number",
+                variable_name: "mobile_number",
+                value: "+2348012345678"
+            }
+         ]
+      },
+      callback: function(response){
+          var amount = document.getElementById("amount").value;
+          var user_id = document.getElementById("user_id").value;
+          var user_email = document.getElementById("user_email").value;
+          var campaign_id = document.getElementById("campaign_id").value;
+          var parsed_amount = amount + '00'
+          var parsed_float = parseFloat(parsed_amount)
+          var purpose = document.getElementById("purpose").value;
+          var message = document.getElementById("message").value
+          //alert('success. transaction ref is ' + response.reference);
+          var response_reference = response.reference
+          if(response_reference != undefined){
+            console.log("this is the reference", response_reference);
+            // start
+            $.ajax({
+              url:'/donation',
+              type:'POST',
+              dataType:'json',
+              data:{
+                response_reference: response_reference,
+                amount: amount,
+                user_id: user_id,
+                user_email: user_email,
+                purpose: purpose,
+                message: message,
+                parsed_float: parsed_float,
+                campaign_id: campaign_id,
+                authenticity_token: window._token
+                },
+              success:function(data){
+                console.log(data.success)
+                console.log(data.user_fullname)
+                console.log(data.result)
+                $('.loader_image').hide()
+                $('.success_msg').show();
+                // $('#overlay').hide()
+                $('.namer').text(data.user_fullname)
+              },
+              error:function(data){
+                console.log(data)
+                 $('.loader_image').hide();
+                 // $('#overlay').hide()
+
+              }
+            });
+            //end
+          }
+      },
+      onClose: function(){
+          alert('window closed');
+           $('.loader_image').hide()
+           $('#overlay').hide()
+            $( ":input" ).prop('disabled', false);
+      }
+    });
+    handler.openIframe();
+  }
+</script>

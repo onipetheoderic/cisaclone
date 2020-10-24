@@ -1,0 +1,68 @@
+<div class="main-menu-area">
+   <%= render "home/common/main_menu" %>
+</div>
+
+<div class="banner-area banner-area--about-us all-text-white text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="page-title">resources</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="body-overlay"></div>
+<section class="section-padding ash-white-bg">
+    <div class="container">
+      <div class="row">
+        <p>Thank you for your interest in employment at The Community Initiative for a Safer Africa CISA.
+          Our staff members are our strength. CISA is committed to hiring a knowledgeable, passionate and diverse workforce.
+          Joining CISA means joining a team dedicated to improving the lives and safety of communities across Africa.
+          To achieve that mission, CISA focuses its resources and energies on initiatives promotes safer communities..</p>
+      </div>
+
+
+
+
+<div class="main-content section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+              <div class="fund-events">
+                <% @resources.each do |resource| %>                
+                  <div class="fund-event__text-content">
+                    <h4 class="fund-event__title"><%= link_to resource.title, cisa_resource_details_path(resource.id) %></h4>
+                    <%= truncate resource.description, length: 200 %>
+                  <p><%= link_to "read more >>", cisa_resource_details_path(resource.id), class: 'btn' %></p>
+                    <br>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="col-md-4">
+                <aside class="sidebar">
+                    <form class="search-form widget">
+                        <input type="search" placeholder="Search" class="form-control search-form__input" />
+                        <button type="submit" class="search-form__submit"><i class="fa fa-search base-color"></i> </button>
+                    </form>
+                    <div class="widget">
+                        <div class="widget__heading">
+                            <h4 class="widget__title">UPCOMING <span class="base-color">PROGRAMS</span></h4>
+                        </div>
+                        <div class="widget__text-content">
+                            <%=  render 'home/common/sidebar_upcoming_event_slide_programs' %>
+                        </div>
+                    </div>
+                   
+                     <%= render 'home/common/sidebar_latest_causes_programs' %>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    </div>
+</section>

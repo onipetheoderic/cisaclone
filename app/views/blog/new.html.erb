@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Blog#new</h1>
+<p>Find me in app/views/blog/new.html.erb</p>
+<div class="row">
+  <div class="col-md-6">
+      <%= simple_form_for(@blog_post, url: blog_path) do |f| %>
+        <%= f.input :title %>
+        <%= f.input :body %>
+        <%= f.input :picture, as: :file %>
+        <%= f.submit "Submit" %>
+      <% end %>
+    </div>
+  </div>
+</div>

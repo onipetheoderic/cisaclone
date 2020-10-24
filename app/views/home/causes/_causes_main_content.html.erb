@@ -1,0 +1,65 @@
+<div class="main-content section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                  
+
+<% @campaign_causes.each do |campaign| %>
+    <div class="col-sm-6 col-xs-12">
+        <div class="our-causes">
+            <div class="our-causes__image-wrap">
+              
+                   <%=link_to (image_tag campaign.image.url(:medium), class: 'our-causes__image'),  campaign_show_donation_index_path(:id=> campaign.slug) %>
+                <div class="our-causes__percentage base-bg">
+                    <div class="our-causes__rised">
+                        RAISED => <span class="base-color" class="raised"> <%= campaign.raised %> </span>
+                    </div>
+                    <div class="our-causes__goal">
+                        <span class="nv-color" id= "goal">GOAL - </span> <span> ₦<%= campaign.goal %> </span>
+                    </div>
+                </div>
+            </div>
+            <div class="our-causes__text-content text-center">
+                <div class="progress-item">
+                    <div  class="progress-bg">
+                        <div id='progress-one' class="progress-rate base-bg" data-value='<%=campaign.percentage_donated.round(2) %>'>
+                        </div>
+                    </div>
+                    <span class="progress-percent"> <%= campaign.percentage_donated.round(2) %>%</span>
+                </div><!--/.progress-item-->
+                <h4 class="text-uppercase our-causes__title"><%= link_to campaign.name, campaign %></h4>
+                <p><%= campaign.story %></p>
+            <%= link_to 'View', campaign_show_donation_index_path(:id=> campaign.slug), class: "btn" %>
+
+            </div>
+        </div>
+    </div>
+      <% end %>
+
+
+
+
+                </div>
+    
+            </div>
+            <div class="col-md-4">
+                <aside class="sidebar">
+                    <div class="widget">
+                        <div class="widget__heading">
+                            <h4 class="widget__title">UPCOMING <span class="base-color">PROGRAMS</span></h4>
+                        </div>
+                        <div class="widget__text-content">
+                            <%=  render 'home/common/sidebar_upcoming_event_slide' %>
+                        </div>
+                    </div>
+                    <%= render 'home/common/sidebar_category' %>
+
+                    <%= render 'home/common/sidebar_latest_causes' %>
+
+                    <%= render 'home/common/sidebar_tags' %>
+                </aside>
+            </div>
+        </div>
+    </div>
+</div>

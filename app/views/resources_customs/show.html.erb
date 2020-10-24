@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @resources_custom.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @resources_custom.description %>
+</p>
+
+<p>
+  <strong>Published:</strong>
+  <%= @resources_custom.published %>
+</p>
+
+<%= link_to 'Edit', edit_resources_custom_path(@resources_custom) %> |
+<%= link_to 'Back', resources_customs_path %>

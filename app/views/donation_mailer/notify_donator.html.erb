@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h2>Dear &nbsp;<%= @user.fullname%> thanks for your generous donation to <%= @program.name %> </h2>
+    <p>
+     because of your generous donation, the Realized amount has now increased To: <%= @current_realized %>
+    </p>
+    <h4> Program description</h4>
+    <p> <%= @program.description %></p>
+    
+    <p>Thanks for your donation do have a great day!</p>
+  </body>
+</html>

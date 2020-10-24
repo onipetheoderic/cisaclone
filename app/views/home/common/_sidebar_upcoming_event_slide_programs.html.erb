@@ -1,0 +1,18 @@
+<div class="upcomming-event-carousel" id="upcomming-event-carousel">
+    
+    <% @programs_upcomings.each do |program| %>
+        <div class="upcomming-event-carousel__item">
+            <div class="image text-center">
+                <a href="#">
+                  <%=link_to (image_tag program.image.url(:medium), class: 'fund-event__image', alt: ""), program %>
+                <h4 class="upcomming-event-carousel__title"><%= program.title %></h4></a>
+
+            </div>
+            <div class="event-counter">
+                 <% if program.starts_at %>
+                <div id="event-counter-one" class="musica-counter-active" data-value-year="<%= program.starts_at.year %> " data-value-month="<%= program.starts_at.month %>" data-value-day="<%= program.starts_at.day %>" data-value-zone="+10" ></div>
+                <% end %>
+            </div>
+        </div><!--/.upcomming-event-carousel__item-->
+    <% end %>
+</div>

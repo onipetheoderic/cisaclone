@@ -1,0 +1,80 @@
+<% content_for(:page_content) do %>
+<!-- page content -->
+<div class="right_col" role="main">
+  <div class="">
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>Campaign Category Details</h2>
+
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+            <p id="notice"><%= notice %></p>
+
+            <p>
+  <strong>Campanign category:</strong>
+  <%= @campaign.campaign_category.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @campaign.user %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @campaign.name %>
+</p>
+
+<p>
+  <strong>Story:</strong>
+  <%= @campaign.story %>
+</p>
+
+<p>
+  <strong>Facebook shares:</strong>
+  <%= @campaign.facebooK_shares %>
+</p>
+
+<p>
+  <strong>Twitter shares:</strong>
+  <%= @campaign.twitter_shares %>
+</p>
+
+<p>
+  <strong>Likes:</strong>
+  <%= @campaign.likes %>
+</p>
+
+<p>
+  <strong>Goal:</strong>
+  <%= @campaign.goal %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @campaign.activated %>
+</p>
+
+     
+<%= link_to 'Edit', edit_campaign_path(@campaign) %> |
+<%= link_to 'Back', campaigns_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<br>
+
+<br>
+<!-- /page content -->
+<% end %>

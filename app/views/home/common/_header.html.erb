@@ -1,0 +1,88 @@
+<!-- <div class="preloader">
+    <div class="loader-inner ball-scale-multiple">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div> -->
+
+<header class="fund-header ">
+    <div class="top-bar base-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-xs-6 text-xs-center">
+                    <div class="top-bar__contact">
+                        <%= link_to contact_us_path do %>
+                                <%= fa_icon "envelope" %>   
+                            <% end %>
+                   
+                        <span class="pdl15 pdr15">|</span>
+                         <%= link_to contact_us_path do %>
+                                <%= fa_icon "phone-square" %>   
+                            <% end %>
+                         
+                       
+                        <% if !user_signed_in? %>
+                         <span class="pdl15 pdr15">| </span>
+                            <%= link_to user_facebook_omniauth_authorize_path do %>
+                                <%= fa_icon "facebook" %> &nbsp;  Login with Facebook 
+                            <% end %>
+                            &nbsp; |
+                           <i class="fa fa-user"></i>
+                              <%= link_to "Login", new_user_session_path %>
+                               |
+                            <%= link_to "Register", new_user_registration_path %>
+                               
+                        <% end %>
+
+                    </div>
+                </div>
+                <div class="col-sm-6 col-xs-6 text-right text-xs-center">
+                   
+                    <div class="social-icons ">
+                       
+                        <ul class="list-inline pdl20">
+                        <li>  <% if user_signed_in? %>
+                             Welcome <%= link_to current_user.fullname, profile_dashboard_path %>
+                     
+                    <% end %></li>
+                    <!-- <%= link_to 'Login With Facebook',user_facebook_omniauth_authorize_path %> -->
+
+
+
+
+                            <!-- <li><a href="#"><i class="fa fa-twitter"></i> </a> </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i> </a> </li>
+                            <li><a href="#"><i class="fa fa-instagram"></i> </a> </li>
+                            <li><a href="#"><i class="fa fa-vk"></i> </a> </li>
+                            <li><a href="#"><i class="fa fa-pinterest"></i> </a> </li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<nav class="mobile-background-nav">
+    <div class="mobile-inner">
+        <span class="mobile-menu-close"><i class="icon-icomooon-close"></i></span>
+        <ul class="menu-accordion">
+
+          <li><%= link_to 'Home', home_path %></li>
+          <li><%= link_to 'About Us', about_cisa_path %></li>
+          <li><%= link_to 'Programs',cisa_programs_path %></li>
+          <li><%= link_to 'Resources', cisa_resources_path %></li>
+           <li><%= link_to 'Donate', cisa_programs_path %></li>
+          <li><%= link_to 'Contact', contact_us_path %> </li>
+          <li><%= link_to 'Careers', cisa_careers_path %> </li>
+          <% if user_signed_in? %>
+          <li> <%= link_to "My Account", profile_dashboard_path %></li>
+          <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Login", new_user_session_path %></li>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <% end %>
+       </ul>
+    </div>
+</nav>
